@@ -1,57 +1,113 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuja's Digital Space</title>
+    <title>Anuja | BCA Scholar & Developer</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f0f4f8; color: #333; }
-        header { background: #4a90e2; color: white; padding: 60px 20px; text-align: center; }
-        section { padding: 40px 20px; max-width: 800px; margin: 20px auto; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn-container { text-align: center; margin-top: 20px; }
-        .btn { background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; margin: 10px; font-weight: bold; font-size: 16px; }
-        #messageBox { margin-top: 20px; padding: 20px; border-radius: 10px; background: #e3f2fd; display: none; text-align: center; font-weight: bold; border-left: 5px solid #2196f3; }
-        footer { text-align: center; padding: 30px; color: #777; }
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+        
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #0f172a; color: #f8fafc; line-height: 1.6; }
+        
+        header { 
+            background: linear-gradient(45deg, #1e293b, #334155); 
+            padding: 80px 20px; text-align: center; border-bottom: 4px solid #38bdf8;
+        }
+
+        section { padding: 50px 20px; max-width: 800px; margin: 20px auto; background: #1e293b; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        h2 { color: #38bdf8; border-bottom: 2px solid #38bdf8; display: inline-block; margin-bottom: 20px; }
+
+        /* Real-time Clock */
+        #clock { font-size: 28px; font-family: 'Courier New', monospace; color: #38bdf8; margin: 15px 0; text-shadow: 0 0 10px #38bdf8; }
+
+        /* Skill Bars */
+        .skill-box { margin-bottom: 20px; }
+        .bar-bg { background: #334155; border-radius: 10px; height: 12px; width: 100%; }
+        .bar-fill { background: #38bdf8; height: 100%; border-radius: 10px; box-shadow: 0 0 10px #38bdf8; }
+
+        /* Timeline */
+        .timeline { border-left: 2px solid #38bdf8; padding-left: 20px; margin-left: 10px; }
+        .time-item { margin-bottom: 25px; position: relative; }
+        .time-item::before { content: ''; width: 12px; height: 12px; background: #38bdf8; position: absolute; left: -27px; top: 5px; border-radius: 50%; }
+
+        /* Glowing Instagram Button */
+        .insta-btn {
+            display: inline-block; padding: 12px 30px; border-radius: 50px;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white; text-decoration: none; font-weight: bold; transition: 0.4s;
+            box-shadow: 0 0 15px rgba(220, 39, 67, 0.4); margin-top: 20px;
+        }
+        .insta-btn:hover { transform: scale(1.1); box-shadow: 0 0 25px rgba(220, 39, 67, 0.8); }
+
+        /* Security Tip Box */
+        .security-alert { background: #0c4a6e; border-left: 5px solid #0ea5e9; padding: 15px; margin-top: 20px; font-size: 14px; }
+
+        footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 14px; }
     </style>
 </head>
-<body>
+<body onload="updateTime()">
 
     <header>
-        <h1>नमस्ते, मैं अनुजा हूँ 🙋‍♀️</h1>
-        <p>BCA Student @ महाराष्ट्र महाविद्यालय</p>
+        <h1>Anuja's Tech Space ✨</h1>
+        <p>BCA Student | Maharashtra Mahavidyalaya</p>
+        <div id="clock">00:00:00</div>
     </header>
 
     <section>
-        <h2>मेरे बारे में</h2>
-        <p>मैं एक उत्साही कोडर हूँ जो नई तकनीकों को सीखने में विश्वास रखती हूँ। कोडिंग के साथ-साथ मुझे डांस का भी बहुत जुनून है।</p>
-    </section>
-
-    <section>
-        <h2>मेरी स्किल्स & लक्ष्य</h2>
-        <p>फिलहाल मैं अपने **BCA 2nd Semester** की तैयारी कर रही हूँ और C, Java, Python सीख रही हूँ।</p>
-        <div class="btn-container">
-            <button class="btn" onclick="showMsg('Welcome! मेरी वेबसाइट पर आपका स्वागत है। ✨')">Welcome</button>
-            <button class="btn" onclick="showMsg('मेरा लक्ष्य एक बेहतरीन Software Developer बनना है! 💻🚀')">My Goal</button>
-            <button class="btn" style="background:#2ed573;" onclick="showMsg('डांस मेरा एनर्जी बूस्टर है! 💃✨')">Magic Mode</button>
+        <h2>My Programming Skills</h2>
+        <div class="skill-box">
+            <span>C Language</span>
+            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
         </div>
-        <div id="messageBox"></div>
+        <div class="skill-box">
+            <span>Java Basics</span>
+            <div class="bar-bg"><div class="bar-fill" style="width: 70%;"></div></div>
+        </div>
+        <div class="skill-box">
+            <span>Python (Swayam)</span>
+            <div class="bar-bg"><div class="bar-fill" style="width: 65%;"></div></div>
+        </div>
     </section>
 
     <section>
-        <h2>हॉबीज़</h2>
-        <p>मुझे खाली समय में अपने बगीचे के गुलाब के पौधों की देखभाल करना और संगीत सुनना पसंद है। 🌹🎶</p>
+        <h2>My BCA Journey 2026</h2>
+        <div class="timeline">
+            <div class="time-item">
+                <b>January:</b> Commenced BCA Journey at College.
+            </div>
+            <div class="time-item">
+                <b>February:</b> Mastered Logic Building and C Programming.
+            </div>
+            <div class="time-item">
+                <b>March:</b> Successfully deployed my first Interactive Website! 🚀
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <h2>Connect With Me</h2>
+        <p>Follow my coding and creative journey on Instagram:</p>
+        <a href="https://www.instagram.com/YOUR_USERNAME" target="_blank" class="insta-btn">Follow me on Instagram 📸</a>
+        
+        <div class="security-alert">
+            🛡️ <b>Cyber Awareness:</b> Keep your passwords strong and multi-factor authentication (MFA) enabled!
+        </div>
     </section>
 
     <footer>
-        <p>Created by Anuja | BCA 2026 ❤️</p>
+        <p>&copy; 2026 Anuja | Dedicated to Innovation & Learning</p>
     </footer>
 
     <script>
-        function showMsg(text) {
-            var box = document.getElementById('messageBox');
-            box.innerHTML = text;
-            box.style.display = 'block';
-            window.scrollTo({ top: box.offsetTop + 100, behavior: 'smooth' });
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
+                            now.getMinutes().toString().padStart(2, '0') + ":" + 
+                            now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('clock').innerHTML = timeStr;
+            setTimeout(updateTime, 1000);
         }
     </script>
 
