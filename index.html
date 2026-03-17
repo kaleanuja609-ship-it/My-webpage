@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anuja | Grand BCA Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -53,15 +54,12 @@
 
         #clock { font-size: 35px; font-family: 'Courier New', monospace; color: #38bdf8; margin: 20px 0; font-weight: bold; }
 
-        /* Skill Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .grid-item { background: rgba(56, 189, 248, 0.1); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid rgba(56, 189, 248, 0.2); }
 
-        /* Progress Bar */
         .skill-bar { background: #334155; border-radius: 10px; height: 12px; width: 100%; margin: 10px 0; overflow: hidden; }
         .fill { background: linear-gradient(90deg, #38bdf8, #818cf8); height: 100%; border-radius: 10px; }
 
-        /* Timeline Box */
         .achievement { background: #0c4a6e; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #facc15; }
 
         .btn { 
@@ -72,6 +70,22 @@
         .btn:hover { background: #f8fafc; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
 
         #msgBox { margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(56, 189, 248, 0.1); color: #38bdf8; display: none; border: 1px solid #38bdf8; text-align: center; font-weight: bold; }
+
+        /* --- New Unique Thank You Styles --- */
+        .thank-you-section { text-align: center; padding: 60px 20px; margin-top: 20px; }
+        .thank-you-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            color: #38bdf8;
+            text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+            animation: pulseGlow 2.5s infinite ease-in-out;
+            margin-bottom: 5px;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); text-shadow: 0 0 10px #38bdf8; }
+            50% { transform: scale(1.05); text-shadow: 0 0 25px #38bdf8, 0 0 40px #818cf8; }
+        }
+        /* ---------------------------------- */
 
         footer { text-align: center; padding: 60px; background: rgba(15, 23, 42, 0.8); color: #64748b; font-size: 14px; }
     </style>
@@ -141,6 +155,11 @@
             <li>Network Security & Ethical Hacking</li>
         </ul>
     </section>
+
+    <div class="thank-you-section">
+        <p class="thank-you-text">Thank You for Visiting!</p>
+        <p style="color: #94a3b8; font-size: 14px; letter-spacing: 2px;">Your support inspires my coding journey.</p>
+    </div>
 
     <footer>
         <p>Built with ❤️ and Code | &copy; 2026 Anuja</p>
