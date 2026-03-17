@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Anuja's Digital Space</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f0f4f8; 
+            transition: background-color 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        /* वेलकम पट्टी */
+        .welcome-bar {
+            background-color: #2c3e50;
+            color: #ffd700;
+            padding: 12px 0;
+            width: 100%;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .container { 
+            max-width: 650px; 
+            background: white; 
+            padding: 30px; 
+            margin: 40px 20px;
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            text-align: center;
+        }
+        h1 { color: #2c3e50; font-size: 2.2em; margin-bottom: 5px; }
+        .subtitle { color: #3498db; font-weight: bold; font-size: 1.1em; }
+        
+        /* बॉक्स स्टाइल */
+        .section-box {
+            text-align: left;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 5px solid #3498db;
+        }
+        /* डांस सेक्शन का खास स्टाइल */
+        .passion-box {
+            border-left-color: #ff4757; 
+            background: #fff5f6;
+        }
+        
+        .magic-btn { 
+            padding: 15px 35px; 
+            font-size: 18px; 
+            background: linear-gradient(45deg, #3498db, #8e44ad);
+            color: white; 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            margin-top: 25px;
+            box-shadow: 0 5px 15px rgba(142, 68, 173, 0.3);
+            transition: transform 0.3s;
+        }
+        .magic-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<marquee class="welcome-bar" behavior="scroll" direction="left">
+    ✨ अनुजा के डिजिटल स्पेस में आपका स्वागत है | BCA 2nd Semester | कोडिंग + मेरा जुनून: डांस ✨
+</marquee>
+
+<div class="container">
+    <h1>नमस्ते, मैं अनुजा हूँ 🙅‍♀️</h1>
+    <p class="subtitle">BCA Student @ महाराष्ट्र महाविद्यालय</p>
+    
+    <p>मैं एक उत्साही कोडर हूँ जो नई तकनीकों को सीखने और उन्हें लागू करने में विश्वास रखती हूँ।</p>
+
+    <div class="section-box">
+        <h3 style="margin-top:0;">🚀 मेरी कोडिंग स्किल्स</h3>
+        <ul style="padding-left: 20px;">
+            <li>C & Java Programming (Lab Expert)</li>
+            <li>Python Learning (SWAYAM Course)</li>
+            <li>Super Fast Typing ⚡</li>
+        </ul>
+    </div>
+
+    <div class="section-box passion-box">
+        <h3 style="margin-top:0; color: #ff4757;">💃 मेरा जुनून: डांस</h3>
+        <p style="font-style: italic; color: #444; line-height: 1.8;">
+            "कोडिंग की थकान हो या दिन भर की बोरियत, जैसे ही कानों में संगीत पड़ता है, मैं खुद को थिरकने से रोक नहीं पाती। 
+            डांस मेरा वो जुनून है जिसे मैं कभी नहीं छोड़ सकती। यह मेरे लिए एक <b>'Energy Booster'</b> की तरह काम करता है! ✨"
+        </p>
+    </div>
+
+    <button class="magic-btn" onclick="changeColor()">Magic Mode: ON ✨</button>
+</div>
+
+<script>
+    // पेज खुलते ही पॉप-अप
+    window.onload = function() {
+        alert("नमस्ते अनुजा! आपका कोडिंग दिन शानदार हो! ✨");
+    }
+
+    // कलर बदलने वाला फंक्शन
+    function changeColor() {
+        const colors = ['#FFD1DC', '#E6E6FA', '#B0E0E6', '#98FF98', '#FFFACD', '#FFCC99', '#D1FFD1'];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.body.style.backgroundColor = randomColor;
+    }
+</script>
+
+</body>
+</html>
