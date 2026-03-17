@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuja's Portfolio ✨</title>
+    <title>Anuja's Digital Space</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; color: #333; text-align: center; }
-        header { background: #6c5ce7; color: white; padding: 50px 20px; }
-        section { padding: 40px 20px; max-width: 700px; margin: auto; background: white; margin-top: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .btn { background: #fd79a8; color: white; border: none; padding: 12px 20px; border-radius: 25px; cursor: pointer; margin: 10px; font-weight: bold; transition: 0.3s; }
-        .btn:hover { transform: scale(1.1); background: #e84393; }
-        #msgBox { margin-top: 20px; padding: 15px; border-radius: 10px; background: #dfe6e9; display: none; font-weight: bold; color: #2d3436; }
-        footer { margin-top: 50px; padding: 20px; font-size: 0.9rem; color: #636e72; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #f0f4f8; color: #333; }
+        header { background: #4a90e2; color: white; padding: 60px 20px; text-align: center; }
+        section { padding: 40px 20px; max-width: 800px; margin: 20px auto; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .btn-container { text-align: center; margin-top: 20px; }
+        .btn { background: #ff4757; color: white; border: none; padding: 12px 25px; border-radius: 30px; cursor: pointer; margin: 10px; font-weight: bold; font-size: 16px; }
+        #messageBox { margin-top: 20px; padding: 20px; border-radius: 10px; background: #e3f2fd; display: none; text-align: center; font-weight: bold; border-left: 5px solid #2196f3; }
+        footer { text-align: center; padding: 30px; color: #777; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Anuja's Digital Space ✨</h1>
-        <p>BCA Student | Maharashtra Mahavidyalaya</p>
+        <h1>नमस्ते, मैं अनुजा हूँ 🙋‍♀️</h1>
+        <p>BCA Student @ महाराष्ट्र महाविद्यालय</p>
     </header>
 
     <section>
-        <h2>Interactive Buttons</h2>
-        <p>बटन दबाएं और मैसेज देखें:</p>
-        <button class="btn" onclick="show('Welcome to my first project! 😊')">Welcome</button>
-        <button class="btn" onclick="show('BCA 2nd Semester: Let\'s crack it! 💻🚀')">My Goal</button>
-        <button class="btn" style="background:#00cec9;" onclick="show('Keep coding and keep dancing! 💃✨')">Magic Mode</button>
-        
-        <div id="msgBox"></div>
+        <h2>मेरे बारे में</h2>
+        <p>मैं एक उत्साही कोडर हूँ जो नई तकनीकों को सीखने में विश्वास रखती हूँ। कोडिंग के साथ-साथ मुझे डांस का भी बहुत जुनून है।</p>
     </section>
 
     <section>
-        <h2>About My Skills</h2>
-        <p>I am learning <b>C, Java, and Python</b>. Besides coding, I love <b>Dancing</b> 💃 and taking care of my <b>Roses</b> 🌹.</p>
+        <h2>मेरी स्किल्स & लक्ष्य</h2>
+        <p>फिलहाल मैं अपने **BCA 2nd Semester** की तैयारी कर रही हूँ और C, Java, Python सीख रही हूँ।</p>
+        <div class="btn-container">
+            <button class="btn" onclick="showMsg('Welcome! मेरी वेबसाइट पर आपका स्वागत है। ✨')">Welcome</button>
+            <button class="btn" onclick="showMsg('मेरा लक्ष्य एक बेहतरीन Software Developer बनना है! 💻🚀')">My Goal</button>
+            <button class="btn" style="background:#2ed573;" onclick="showMsg('डांस मेरा एनर्जी बूस्टर है! 💃✨')">Magic Mode</button>
+        </div>
+        <div id="messageBox"></div>
+    </section>
+
+    <section>
+        <h2>हॉबीज़</h2>
+        <p>मुझे खाली समय में अपने बगीचे के गुलाब के पौधों की देखभाल करना और संगीत सुनना पसंद है। 🌹🎶</p>
     </section>
 
     <footer>
-        <p>Created with ❤️ by Anuja | 2026</p>
+        <p>Created by Anuja | BCA 2026 ❤️</p>
     </footer>
 
     <script>
-        function show(t) {
-            let b = document.getElementById('msgBox');
-            b.innerHTML = t;
-            b.style.display = 'block';
+        function showMsg(text) {
+            var box = document.getElementById('messageBox');
+            box.innerHTML = text;
+            box.style.display = 'block';
+            window.scrollTo({ top: box.offsetTop + 100, behavior: 'smooth' });
         }
     </script>
 
