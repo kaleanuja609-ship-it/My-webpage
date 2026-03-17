@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuja | BCA Scholar Portfolio</title>
+    <title>Anuja | Grand BCA Portfolio</title>
     <style>
-        /* 1. Animated Gradient Background */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -21,113 +20,131 @@
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
             color: #f8fafc; 
-            line-height: 1.6; 
-        }
-        
-        header { 
-            padding: 100px 20px; 
-            text-align: center; 
-            border-bottom: 2px solid rgba(56, 189, 248, 0.3);
         }
 
-        /* 2. Hover Effects on Sections */
-        section { 
-            padding: 40px 30px; 
-            max-width: 800px; 
-            margin: 30px auto; 
-            background: rgba(30, 41, 59, 0.7); 
-            border-radius: 20px; 
-            backdrop-filter: blur(10px); /* Glassmorphism effect */
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            border-color: #38bdf8;
-        }
-
-        h2 { color: #38bdf8; border-bottom: 2px solid #38bdf8; display: inline-block; margin-bottom: 20px; }
-
-        #clock { 
-            font-size: 32px; 
-            font-family: 'Courier New', monospace; 
-            color: #38bdf8; 
-            text-shadow: 0 0 15px rgba(56, 189, 248, 0.7);
-            margin: 20px 0;
-        }
-
-        .skill-box { margin-bottom: 20px; }
-        .bar-bg { background: #334155; border-radius: 10px; height: 12px; width: 100%; overflow: hidden; }
-        .bar-fill { 
-            background: linear-gradient(90deg, #38bdf8, #818cf8); 
-            height: 100%; 
-            border-radius: 10px; 
-            transition: width 2s ease-in-out;
-        }
-
-        .quote-box {
-            font-style: italic;
+        nav {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px;
+            position: sticky;
+            top: 0;
             text-align: center;
-            color: #94a3b8;
-            border-top: 1px dashed #38bdf8;
-            margin-top: 20px;
-            padding-top: 15px;
+            z-index: 1000;
+            border-bottom: 2px solid #38bdf8;
+            backdrop-filter: blur(8px);
         }
+        nav a { color: #38bdf8; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 13px; letter-spacing: 1px; }
 
-        footer { text-align: center; padding: 50px; color: #64748b; font-size: 14px; }
+        header { padding: 120px 20px; text-align: center; }
+        h1 { font-size: 3.5rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 20px #38bdf8; }
+
+        section { 
+            padding: 50px 30px; 
+            max-width: 900px; 
+            margin: 40px auto; 
+            background: rgba(30, 41, 59, 0.7); 
+            border-radius: 25px; 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: 0.4s;
+        }
+        section:hover { transform: scale(1.02); border-color: #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); }
+
+        h2 { color: #38bdf8; font-size: 24px; border-left: 5px solid #38bdf8; padding-left: 15px; margin-bottom: 25px; }
+
+        #clock { font-size: 35px; font-family: 'Courier New', monospace; color: #38bdf8; margin: 20px 0; font-weight: bold; }
+
+        /* Skill Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .grid-item { background: rgba(56, 189, 248, 0.1); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid rgba(56, 189, 248, 0.2); }
+
+        /* Progress Bar */
+        .skill-bar { background: #334155; border-radius: 10px; height: 12px; width: 100%; margin: 10px 0; overflow: hidden; }
+        .fill { background: linear-gradient(90deg, #38bdf8, #818cf8); height: 100%; border-radius: 10px; }
+
+        /* Timeline Box */
+        .achievement { background: #0c4a6e; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid #facc15; }
+
+        .btn { 
+            background: #38bdf8; color: #0f172a; border: none; 
+            padding: 15px 30px; border-radius: 50px; cursor: pointer; 
+            margin: 10px; font-weight: bold; transition: 0.3s;
+        }
+        .btn:hover { background: #f8fafc; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
+
+        #msgBox { margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(56, 189, 248, 0.1); color: #38bdf8; display: none; border: 1px solid #38bdf8; text-align: center; font-weight: bold; }
+
+        footer { text-align: center; padding: 60px; background: rgba(15, 23, 42, 0.8); color: #64748b; font-size: 14px; }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <header>
-        <h1 style="letter-spacing: 2px;">ANUJA</h1>
-        <p style="color: #38bdf8; font-weight: bold;">BCA Scholar | Tech Enthusiast</p>
+    <nav>
+        <a href="#about">PROFILE</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#achievements">ACADEMIC</a>
+        <a href="#future">FUTURE</a>
+    </nav>
+
+    <header id="about">
+        <h1>ANUJA</h1>
+        <p style="font-size: 1.2rem; color: #94a3b8;">BCA Scholar | Maharashtra Mahavidyalaya</p>
         <div id="clock">00:00:00</div>
     </header>
 
     <section>
-        <h2>The Profile</h2>
-        <p>I am a first-year <b>BCA student</b> at <b>Maharashtra Mahavidyalaya</b>, currently navigating through my 2nd Semester. My focus lies at the intersection of logical programming and creative web development.</p>
-    </section>
-
-    <section>
-        <h2>Technical Stack</h2>
-        <div class="skill-box">
-            <span>C Programming</span>
-            <div class="bar-bg"><div class="bar-fill" style="width: 85%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <span>Java Development</span>
-            <div class="bar-bg"><div class="bar-fill" style="width: 70%;"></div></div>
-        </div>
-        <div class="skill-box">
-            <span>Python (SWAYAM Certified)</span>
-            <div class="bar-bg"><div class="bar-fill" style="width: 65%;"></div></div>
+        <h2>The Academic Journey</h2>
+        <p>Currently in my <b>2nd Semester</b> of Bachelor of Computer Applications. I am passionate about understanding how technology can simplify complex human problems through efficient algorithms and secure coding practices.</p>
+        <div class="grid">
+            <div class="grid-item">📚<br>C Programming</div>
+            <div class="grid-item">☕<br>Java Basics</div>
+            <div class="grid-item">🛡️<br>Cyber Security</div>
+            <div class="grid-item">🌐<br>Web Design</div>
         </div>
     </section>
 
-    <section>
-        <h2>Core Interests</h2>
-        <p>✔ Building responsive web interfaces.</p>
-        <p>✔ Exploring Cyber Security fundamentals.</p>
-        <p>✔ Mastering Data Structures using C/Java.</p>
+    <section id="skills">
+        <h2>Technical Skillset</h2>
+        <p>C Language</p>
+        <div class="skill-bar"><div class="fill" style="width: 85%;"></div></div>
+        <p>Java Development</p>
+        <div class="skill-bar"><div class="fill" style="width: 72%;"></div></div>
+        <p>Python (Swayam Certified)</p>
+        <div class="skill-bar"><div class="fill" style="width: 65%;"></div></div>
         
-        <div class="quote-box">
-            "First, solve the problem. Then, write the code."
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn" onclick="showMsg('Keep Pushing! Every line of code brings you closer to your goal. 🚀')">Daily Wisdom</button>
+            <button class="btn" onclick="showMsg('2026 Goal: Mastering Data Structures & Web 3.0 💻')">Career Goal</button>
+        </div>
+        <div id="msgBox"></div>
+    </section>
+
+    <section id="achievements">
+        <h2>Academic Milestones</h2>
+        <div class="achievement">
+            🏆 <b>Unit Test Excellence:</b> Consistently maintaining high performance in core IT subjects.
+        </div>
+        <div class="achievement">
+            📜 <b>SWAYAM Certification:</b> Enrolled and actively pursuing Python programming certification.
+        </div>
+        <div class="achievement">
+            💻 <b>Project Deployment:</b> Successfully launched this personal portfolio on GitHub.
         </div>
     </section>
 
-    <section style="background: rgba(12, 74, 110, 0.5); border: 1px solid #0ea5e9;">
-        <p style="margin: 0; text-align: center; font-size: 14px;">
-            🔒 <b>Privacy Status:</b> Secured. Professional links available upon request.
-        </p>
+    <section id="future">
+        <h2>Future Learning Path</h2>
+        <p>What I am planning to learn next in my BCA journey:</p>
+        <ul style="list-style-type: '▹ '; padding-left: 20px;">
+            <li>Advanced Java & Spring Framework</li>
+            <li>Database Management Systems (SQL)</li>
+            <li>Full Stack Web Development (MERN)</li>
+            <li>Network Security & Ethical Hacking</li>
+        </ul>
     </section>
 
     <footer>
-        <p>&copy; 2026 Anuja | Maharashtra Mahavidyalaya</p>
-        <p>Hand-coded with 💻 and ☕</p>
+        <p>Built with ❤️ and Code | &copy; 2026 Anuja</p>
+        <p>Secure Academic Portfolio</p>
     </footer>
 
     <script>
@@ -139,7 +156,13 @@
             document.getElementById('clock').innerHTML = timeStr;
             setTimeout(updateTime, 1000);
         }
+
+        function showMsg(text) {
+            var box = document.getElementById('msgBox');
+            box.innerHTML = text;
+            box.style.display = 'block';
+        }
     </script>
 
 </body>
-</html>
+    </html>
