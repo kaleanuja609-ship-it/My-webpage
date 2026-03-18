@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuja | Grand BCA Portfolio</title>
+    <title>Anuja | BCA Scholar Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #1e1b4b);
+            --text-color: #f8fafc;
+            --section-bg: rgba(30, 41, 59, 0.7);
+            --accent: #38bdf8;
+        }
+
+        .light-mode {
+            --bg-color: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #cbd5e1, #94a3b8);
+            --text-color: #0f172a;
+            --section-bg: rgba(255, 255, 255, 0.8);
+            --accent: #0284c7;
+        }
+
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -17,10 +31,11 @@
         body { 
             font-family: 'Segoe UI', sans-serif; 
             margin: 0; 
-            background: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #1e1b4b);
+            background: var(--bg-color);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            color: #f8fafc; 
+            color: var(--text-color); 
+            transition: 0.5s ease;
         }
 
         nav {
@@ -30,141 +45,111 @@
             top: 0;
             text-align: center;
             z-index: 1000;
-            border-bottom: 2px solid #38bdf8;
+            border-bottom: 2px solid var(--accent);
             backdrop-filter: blur(8px);
         }
-        nav a { color: #38bdf8; text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 13px; letter-spacing: 1px; }
+        nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 13px; }
 
-        header { padding: 120px 20px; text-align: center; }
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 20px #38bdf8; }
+        .theme-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1001;
+        }
+
+        header { padding: 80px 20px; text-align: center; }
+        h1 { font-size: 3.5rem; font-family: 'Dancing Script', cursive; color: var(--accent); }
 
         section { 
-            padding: 50px 30px; 
-            max-width: 900px; 
-            margin: 40px auto; 
-            background: rgba(30, 41, 59, 0.7); 
-            border-radius: 25px; 
+            padding: 35px 25px; 
+            max-width: 800px; 
+            margin: 30px auto; 
+            background: var(--section-bg); 
+            border-radius: 20px; 
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.4s;
         }
-        section:hover { transform: scale(1.02); border-color: #38bdf8; box-shadow: 0 0 30px rgba(56, 189, 248, 0.2); }
 
-        h2 { color: #38bdf8; font-size: 24px; border-left: 5px solid #38bdf8; padding-left: 15px; margin-bottom: 25px; }
-
-        #clock { font-size: 35px; font-family: 'Courier New', monospace; color: #38bdf8; margin: 20px 0; font-weight: bold; }
-
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .grid-item { background: rgba(56, 189, 248, 0.1); padding: 20px; border-radius: 15px; text-align: center; border: 1px solid rgba(56, 189, 248, 0.2); }
-
-        .skill-bar { background: #334155; border-radius: 10px; height: 12px; width: 100%; margin: 10px 0; overflow: hidden; }
-        .fill { background: linear-gradient(90deg, #38bdf8, #818cf8); height: 100%; border-radius: 10px; }
-
-        .btn { 
-            background: #38bdf8; color: #0f172a; border: none; 
-            padding: 15px 30px; border-radius: 50px; cursor: pointer; 
-            margin: 10px; font-weight: bold; transition: 0.3s;
-        }
-        .btn:hover { background: #f8fafc; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4); }
-
-        #msgBox { margin-top: 25px; padding: 20px; border-radius: 15px; background: rgba(56, 189, 248, 0.1); color: #38bdf8; display: none; border: 1px solid #38bdf8; text-align: center; font-weight: bold; }
+        /* Skill Bar Styles */
+        .skill-container { margin: 15px 0; }
+        .skill-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: bold; }
+        .skill-bar { background: #334155; height: 10px; border-radius: 10px; overflow: hidden; }
+        .skill-fill { background: var(--accent); height: 100%; border-radius: 10px; transition: 1s ease-in-out; }
 
         .qr-section { text-align: center; margin: 40px auto; }
-        .qr-image { 
-            width: 160px; 
-            border: 4px solid #38bdf8; 
-            border-radius: 20px; 
-            padding: 10px; 
-            background: white; 
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.5);
-            transition: 0.3s;
-        }
-        .qr-image:hover { transform: scale(1.05); }
+        .qr-image { width: 150px; border: 4px solid var(--accent); border-radius: 15px; background: white; padding: 5px; }
 
-        .thank-you-section { text-align: center; padding: 60px 20px; }
-        .thank-you-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 50px;
-            color: #38bdf8;
-            text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
-        }
-
-        footer { text-align: center; padding: 60px; background: rgba(15, 23, 42, 0.8); color: #64748b; font-size: 14px; }
+        footer { text-align: center; padding: 40px; font-size: 13px; opacity: 0.8; }
     </style>
 </head>
-<body onload="updateTime()">
+<body>
+
+    <button class="theme-btn" onclick="toggleTheme()">🌓</button>
 
     <nav>
-        <a href="#about">PROFILE</a>
+        <a href="#about">ABOUT</a>
         <a href="#skills">SKILLS</a>
-        <a href="#achievements">ACADEMIC</a>
-        <a href="#future">FUTURE</a>
+        <a href="#education">EDUCATION</a>
     </nav>
 
     <header id="about">
-        <h1>ANUJA</h1>
-        <p style="font-size: 1.2rem; color: #94a3b8;">BCA Scholar | Maharashtra Mahavidyalaya</p>
-        <div id="clock">00:00:00</div>
+        <h1>Anuja</h1>
+        <p>BCA Scholar | 2nd Semester</p>
+        <div id="clock" style="font-size: 20px; font-family: monospace;">00:00:00</div>
     </header>
 
-    <section id="achievements">
-        <h2>The Academic Journey</h2>
-        <div class="grid">
-            <div class="grid-item">📚<br>C Programming</div>
-            <div class="grid-item">☕<br>Java Basics</div>
-            <div class="grid-item">🛡️<br>Cyber Security</div>
-            <div class="grid-item">🌐<br>Web Design</div>
+    <section id="skills">
+        <h2>Technical Proficiency</h2>
+        
+        <div class="skill-container">
+            <div class="skill-label"><span>C Programming</span><span>85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
         </div>
+
+        <div class="skill-container">
+            <div class="skill-label"><span>HTML & CSS</span><span>90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-label"><span>Java Basics</span><span>70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <p><strong>Maharashtra Mahavidyalaya</strong><br>BCA 1st Year (2nd Semester)</p>
     </section>
 
     <div class="qr-section">
-        <p style="color: #38bdf8; font-size: 14px; margin-bottom: 15px; font-weight: bold;">SCAN TO VISIT PORTFOLIO</p>
-        <img src="qr-code.png.png" alt="My QR Code" class="qr-image">
-    </div>
-
-    <section id="skills">
-        <h2>Technical Skillset</h2>
-        <p>C Language</p>
-        <div class="skill-bar"><div class="fill" style="width: 85%;"></div></div>
-        <p>Java Development</p>
-        <div class="skill-bar"><div class="fill" style="width: 72%;"></div></div>
-        
-        <div style="text-align: center; margin-top: 30px;">
-            <button class="btn" onclick="showMsg('Keep Pushing! You are doing great.')">Daily Wisdom</button>
-        </div>
-        <div id="msgBox"></div>
-    </section>
-
-    <section id="future">
-        <h2>Future Learning Path</h2>
-        <ul style="list-style-type: '▹ '; padding-left: 20px;">
-            <li>Advanced Java & Spring Framework</li>
-            <li>Database Management Systems (SQL)</li>
-            <li>Full Stack Web Development (MERN)</li>
-        </ul>
-    </section>
-
-    <div class="thank-you-section">
-        <p class="thank-you-text">Thank You for Visiting!</p>
+        <p style="font-weight: bold; color: var(--accent);">MY QR CODE</p>
+        <img src="qr-code.png.png" alt="QR Code" class="qr-image">
     </div>
 
     <footer>
-        <p>Built with ❤️ and Code | &copy; 2026 Anuja</p>
+        <p>&copy; 2026 Anuja | Made with ❤️ in Maharashtra</p>
     </footer>
 
     <script>
         function updateTime() {
             const now = new Date();
-            const timeStr = now.getHours().toString().padStart(2, '0') + ":" + 
-                            now.getMinutes().toString().padStart(2, '0') + ":" + 
-                            now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('clock').innerHTML = timeStr;
+            document.getElementById('clock').innerHTML = now.toLocaleTimeString();
             setTimeout(updateTime, 1000);
         }
-        function showMsg(text) {
-            var box = document.getElementById('msgBox');
-            box.innerHTML = text;
-            box.style.display = 'block';
+        updateTime();
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
         }
     </script>
 </body>
