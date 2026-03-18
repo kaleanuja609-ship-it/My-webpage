@@ -3,21 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anuja | BCA Scholar Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Anuja | Professional BCA Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #1e1b4b);
-            --text-color: #f8fafc;
-            --section-bg: rgba(30, 41, 59, 0.7);
             --accent: #38bdf8;
+            --bg-dark: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.85);
         }
 
-        .light-mode {
-            --bg-color: linear-gradient(-45deg, #f1f5f9, #e2e8f0, #cbd5e1, #94a3b8);
-            --text-color: #0f172a;
-            --section-bg: rgba(255, 255, 255, 0.8);
-            --accent: #0284c7;
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            margin: 0; 
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #0c4a6e, #1e1b4b);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #f8fafc;
+            scroll-behavior: smooth;
         }
 
         @keyframes gradientBG {
@@ -26,118 +28,126 @@
             100% { background-position: 0% 50%; }
         }
 
-        html { scroll-behavior: smooth; }
-        
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; 
-            background: var(--bg-color);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: var(--text-color); 
-            transition: 0.5s ease;
+        /* BCA INFO BANNER (TOP) */
+        .bca-info-top {
+            background: var(--accent);
+            color: #0f172a;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         nav {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            text-align: center;
-            z-index: 1000;
-            border-bottom: 2px solid var(--accent);
-            backdrop-filter: blur(8px);
+            position: sticky; top: 0; width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            padding: 15px 0; z-index: 1000;
+            text-align: center; border-bottom: 2px solid var(--accent);
         }
-        nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: bold; font-size: 13px; }
+        nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: 600; }
 
-        .theme-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1001;
+        header { 
+            height: 90vh; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 20px;
         }
 
-        header { padding: 80px 20px; text-align: center; }
-        h1 { font-size: 3.5rem; font-family: 'Dancing Script', cursive; color: var(--accent); }
+        h1 { font-size: 5.5rem; font-family: 'Dancing Script', cursive; color: var(--accent); margin: 0; text-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
+        .subtitle { font-size: 1.6rem; letter-spacing: 4px; color: #94a3b8; }
 
         section { 
-            padding: 35px 25px; 
-            max-width: 800px; 
-            margin: 30px auto; 
-            background: var(--section-bg); 
-            border-radius: 20px; 
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 70px 40px; max-width: 950px; 
+            margin: 60px auto; background: var(--card-bg); 
+            border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
         }
 
-        /* Skill Bar Styles */
-        .skill-container { margin: 15px 0; }
-        .skill-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: bold; }
-        .skill-bar { background: #334155; height: 10px; border-radius: 10px; overflow: hidden; }
-        .skill-fill { background: var(--accent); height: 100%; border-radius: 10px; transition: 1s ease-in-out; }
+        h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
 
-        .qr-section { text-align: center; margin: 40px auto; }
-        .qr-image { width: 150px; border: 4px solid var(--accent); border-radius: 15px; background: white; padding: 5px; }
+        /* Motivation Grid */
+        .motivation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .m-card { 
+            background: rgba(56, 189, 248, 0.1); 
+            padding: 30px; border-radius: 25px; text-align: center; 
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: 0.3s;
+        }
+        .m-card:hover { background: var(--accent); color: #0f172a; transform: translateY(-10px); }
 
-        footer { text-align: center; padding: 40px; font-size: 13px; opacity: 0.8; }
+        /* BCA Core Subjects Section */
+        .bca-subjects { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; justify-content: center; }
+        .subject-tag { background: #1e293b; padding: 8px 15px; border-radius: 50px; border: 1px solid var(--accent); font-size: 12px; }
+
+        .qr-section { text-align: center; padding: 100px 0; }
+        .qr-image { width: 240px; border: 12px solid white; border-radius: 40px; box-shadow: 0 0 50px var(--accent); }
+
+        footer { text-align: center; padding: 80px; background: #070b14; }
     </style>
 </head>
-<body>
+<body onload="updateTime()">
 
-    <button class="theme-btn" onclick="toggleTheme()">🌓</button>
+    <div class="bca-info-top">
+        Bachelor of Computer Applications • Software Engineering • Web Technologies • 2026 Batch
+    </div>
 
     <nav>
-        <a href="#about">ABOUT</a>
-        <a href="#skills">SKILLS</a>
-        <a href="#education">EDUCATION</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <header id="about">
-        <h1>Anuja</h1>
-        <p>BCA Scholar | 2nd Semester</p>
-        <div id="clock" style="font-size: 20px; font-family: monospace;">00:00:00</div>
+    <header>
+        <h1>Welcome</h1>
+        <p class="subtitle">I AM ANUJA</p>
+        <div id="clock" style="font-size: 2.5rem; font-family: monospace; color: var(--accent); margin-top: 20px;">00:00:00</div>
+        
+        <div class="bca-subjects">
+            <span class="subject-tag">Database Management</span>
+            <span class="subject-tag">C-Programming</span>
+            <span class="subject-tag">Java Development</span>
+            <span class="subject-tag">Cyber Security</span>
+        </div>
     </header>
 
-    <section id="skills">
-        <h2>Technical Proficiency</h2>
-        
-        <div class="skill-container">
-            <div class="skill-label"><span>C Programming</span><span>85%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width: 85%;"></div></div>
-        </div>
+    <section id="about">
+        <h2>🎓 Academic Profile</h2>
+        <p style="font-size: 1.3rem; line-height: 1.8;">
+            I am a dedicated **BCA student** at Maharashtra Mahavidyalaya. My academic focus is on building a strong foundation in computer science, specifically in software logic and modern web technologies. I am passionate about solving complex problems through clean and efficient code.
+        </p>
+    </section>
 
-        <div class="skill-container">
-            <div class="skill-label"><span>HTML & CSS</span><span>90%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width: 90%;"></div></div>
-        </div>
-
-        <div class="skill-container">
-            <div class="skill-label"><span>Java Basics</span><span>70%</span></div>
-            <div class="skill-bar"><div class="skill-fill" style="width: 70%;"></div></div>
+    <section id="motivation">
+        <h2>🚀 Motivation & Goals</h2>
+        <div class="motivation-grid">
+            <div class="m-card">
+                <span style="font-size: 40px;">💡</span>
+                <p><b>Innovation</b><br>Create something new</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">⏳</span>
+                <p><b>Persistence</b><br>Never give up on bugs</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">🏆</span>
+                <p><b>Excellence</b><br>Do your best always</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">📖</span>
+                <p><b>Learning</b><br>Stay hungry for tech</p>
+            </div>
         </div>
     </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <p><strong>Maharashtra Mahavidyalaya</strong><br>BCA 1st Year (2nd Semester)</p>
-    </section>
-
-    <div class="qr-section">
-        <p style="font-weight: bold; color: var(--accent);">MY QR CODE</p>
+    <div class="qr-section" id="contact">
+        <h2 style="justify-content: center; border: none;">🤝 Connect With Me</h2>
         <img src="qr-code.png.png" alt="QR Code" class="qr-image">
     </div>
 
     <footer>
-        <p>&copy; 2026 Anuja | Made with ❤️ in Maharashtra</p>
+        <p>Built with ❤️ by Anuja | BCA Scholar</p>
     </footer>
 
     <script>
@@ -145,11 +155,6 @@
             const now = new Date();
             document.getElementById('clock').innerHTML = now.toLocaleTimeString();
             setTimeout(updateTime, 1000);
-        }
-        updateTime();
-
-        function toggleTheme() {
-            document.body.classList.toggle('light-mode');
         }
     </script>
 </body>
