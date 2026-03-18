@@ -20,7 +20,7 @@
             animation: gradientBG 15s ease infinite;
             color: #f8fafc;
             scroll-behavior: smooth;
-            overflow-x: hidden;
+            overflow-x: hidden; /* एमोजी फटने के दौरान स्क्रॉल रोकने के लिए */
         }
 
         @keyframes gradientBG {
@@ -29,7 +29,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Top Banner */
         .bca-info-top {
             background: var(--accent);
             color: #0f172a;
@@ -48,7 +47,8 @@
             text-align: center; border-bottom: 2px solid var(--accent);
             backdrop-filter: blur(10px);
         }
-        nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: 600; }
+        nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: white; text-shadow: 0 0 10px var(--accent); }
 
         header { 
             height: 90vh; 
@@ -64,26 +64,29 @@
             margin: 60px auto; background: var(--card-bg); 
             border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
         }
+        section:hover { transform: translateY(-5px); }
 
-        h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 30px; }
+        h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
 
-        /* --- GLOWING QR CODE --- */
+        /* --- GLOWING QR CODE CSS --- */
         .qr-section { text-align: center; padding: 100px 0; }
         .qr-image { 
             width: 240px; 
             border: 8px solid white; 
             border-radius: 40px; 
             box-shadow: 0 0 20px var(--accent);
-            animation: borderGlow 2s infinite alternate;
+            animation: neonPulse 2s infinite alternate; /* चमकती बॉर्डर एनीमेशन */
+            transition: 0.5s;
         }
 
-        @keyframes borderGlow {
+        @keyframes neonPulse {
             from { box-shadow: 0 0 15px var(--accent), 0 0 30px var(--accent); transform: scale(1); }
             to { box-shadow: 0 0 35px #f0abfc, 0 0 60px #f0abfc; transform: scale(1.03); }
         }
 
-        /* --- EMOJI EXPLOSION STYLE --- */
+        /* --- EMOJI PARTICLE STYLE --- */
         .emoji-particle {
             position: fixed; pointer-events: none; font-size: 24px; z-index: 9999;
             animation: explode 1s ease-out forwards;
@@ -103,7 +106,7 @@
 <body onload="updateTime()">
 
     <div class="bca-info-top">
-        Bachelor of Computer Applications • 2026 Batch • Anuja
+        Bachelor of Computer Applications • Software Engineering • 2026 Batch
     </div>
 
     <nav>
@@ -125,7 +128,7 @@
     </section>
 
     <div class="qr-section">
-        <h2 style="color: var(--accent);">🤝 Connect With Me</h2>
+        <h2 style="justify-content: center; border: none; color: var(--accent);">🤝 Connect With Me</h2>
         <img src="qr-code.png.png.png" alt="QR Code" class="qr-image">
     </div>
 
@@ -143,7 +146,7 @@
 
         // --- EMOJI EXPLOSION LOGIC ---
         const footer = document.getElementById('mainFooter');
-        const emojis = ['💻', '✨', '🚀', '🔥', '❤️', '🎓', '👩‍💻'];
+        const emojis = ['💻', '✨', '🚀', '🔥', '❤️', '🎓', '👩‍💻', '🌈'];
 
         footer.addEventListener('click', (e) => {
             for (let i = 0; i < 15; i++) {
