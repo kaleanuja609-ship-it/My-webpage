@@ -28,120 +28,175 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* PROGRESS BAR */
-        #progress-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 5px;
-            background: rgba(255,255,255,0.1); z-index: 2000;
+        /* BCA INFO BANNER (TOP) */
+        .bca-info-top {
+            background: var(--accent);
+            color: #0f172a;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
-        #progress-bar { height: 100%; background: var(--accent); width: 0%; box-shadow: 0 0 10px var(--accent); }
 
         nav {
             position: sticky; top: 0; width: 100%;
             background: rgba(15, 23, 42, 0.95);
             padding: 15px 0; z-index: 1000;
             text-align: center; border-bottom: 2px solid var(--accent);
-            backdrop-filter: blur(10px);
         }
         nav a { color: var(--accent); text-decoration: none; margin: 0 15px; font-weight: 600; }
 
         header { 
-            height: 80vh; 
+            height: 90vh; 
             display: flex; flex-direction: column; justify-content: center; align-items: center; 
             text-align: center; padding: 20px;
         }
 
-        h1 { font-size: 5rem; font-family: 'Dancing Script', cursive; color: var(--accent); margin: 0; text-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
-        .typing-text { font-size: 1.8rem; color: #94a3b8; height: 40px; margin-top: 10px; }
+        h1 { font-size: 5.5rem; font-family: 'Dancing Script', cursive; color: var(--accent); margin: 0; text-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
+        .subtitle { font-size: 1.6rem; letter-spacing: 4px; color: #94a3b8; }
 
         section { 
-            padding: 60px 40px; max-width: 900px; 
-            margin: 50px auto; background: var(--card-bg); 
+            padding: 70px 40px; max-width: 950px; 
+            margin: 60px auto; background: var(--card-bg); 
             border-radius: 40px; border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 25px 60px rgba(0,0,0,0.5);
         }
 
-        h2 { color: var(--accent); font-size: 2.2rem; margin-bottom: 25px; border-left: 6px solid var(--accent); padding-left: 20px; }
-        p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 20px; text-align: justify; color: #cbd5e1; }
+        h2 { color: var(--accent); font-size: 2.5rem; margin-bottom: 30px; display: flex; align-items: center; gap: 15px; }
 
-        /* VERTICAL MOTIVATION ICONS */
-        .icon-column {
-            display: flex; flex-direction: column; gap: 20px; align-items: center; margin: 40px 0;
+        /* Motivation Grid */
+        .motivation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+        .m-card { 
+            background: rgba(56, 189, 248, 0.1); 
+            padding: 30px; border-radius: 25px; text-align: center; 
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            transition: 0.3s;
         }
-        .m-icon {
-            font-size: 40px; background: rgba(56, 189, 248, 0.2); 
-            padding: 20px; border-radius: 50%; cursor: pointer;
-            border: 2px solid var(--accent); transition: 0.3s;
-        }
-        .m-icon:hover { transform: scale(1.1); background: var(--accent); box-shadow: 0 0 20px var(--accent); }
+        .m-card:hover { background: var(--accent); color: #0f172a; transform: translateY(-10px); }
 
-        /* QR IMAGE STYLE */
-        .qr-section { text-align: center; padding: 80px 0; }
+        /* BCA Core Subjects Section */
+        .bca-subjects { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; justify-content: center; }
+        .subject-tag { background: #1e293b; padding: 8px 15px; border-radius: 50px; border: 1px solid var(--accent); font-size: 12px; }
+
+        .qr-section { text-align: center; padding: 100px 0; }
+        /* QR IMAGE CSS FIX & GLOW */
         .qr-image { 
-            width: 240px; border: 8px solid white; border-radius: 40px; 
-            box-shadow: 0 0 40px var(--accent); animation: pulse 2s infinite alternate;
+            width: 240px; 
+            border: 10px solid white; 
+            border-radius: 40px; 
+            box-shadow: 0 0 50px var(--accent);
+            animation: neonPulse 2s infinite alternate;
         }
-        @keyframes pulse { from { transform: scale(1); } to { transform: scale(1.05); } }
-
-        /* STYLISH THANKS MESSAGE */
-        .thanks-msg {
-            text-align: center; padding: 60px; background: rgba(56, 189, 248, 0.1);
-            border-top: 2px solid var(--accent);
+        @keyframes neonPulse {
+            from { box-shadow: 0 0 20px var(--accent); transform: scale(1); }
+            to { box-shadow: 0 0 50px #f0abfc; transform: scale(1.04); }
         }
-        .thanks-msg h3 { font-family: 'Dancing Script', cursive; font-size: 3.5rem; color: var(--accent); margin: 0; }
 
-        footer { text-align: center; padding: 60px; background: #070b14; }
+        /* Message Box Styling */
+        .contact-form { display: flex; flex-direction: column; gap: 15px; }
+        .contact-form input, .contact-form textarea {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--accent);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        .send-btn {
+            background: var(--accent);
+            color: #0f172a;
+            border: none;
+            padding: 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .send-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--accent); }
+
+        /* Thank You Section */
+        .thank-you {
+            text-align: center;
+            padding: 100px 20px;
+            background: rgba(56, 189, 248, 0.1);
+            margin-top: 50px;
+        }
+        .thank-you h3 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--accent);
+            margin: 0;
+        }
+
+        footer { text-align: center; padding: 80px; background: #070b14; }
     </style>
 </head>
 <body onload="updateTime()">
 
-    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div class="bca-info-top">
+        Bachelor of Computer Applications • Software Engineering • Web Technologies • 2026 Batch
+    </div>
 
     <nav>
         <a href="#about">About</a>
-        <a href="#motivation">Inspiration</a>
-        <a href="#contact">Message</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#contact">Message Me</a>
     </nav>
 
     <header>
         <h1>Welcome</h1>
-        <div class="typing-text" id="type-target"></div>
+        <p class="subtitle">I AM ANUJA</p>
         <div id="clock" style="font-size: 2.5rem; font-family: monospace; color: var(--accent); margin-top: 20px;">00:00:00</div>
+        
+        <div class="bca-subjects">
+            <span class="subject-tag">Database Management</span>
+            <span class="subject-tag">C-Programming</span>
+            <span class="subject-tag">Java Development</span>
+            <span class="subject-tag">Cyber Security</span>
+        </div>
     </header>
 
     <section id="about">
-        <h2>Professional Profile</h2>
-        <p>I am Anuja, a motivated BCA student at Maharashtra Mahavidyalaya. I am deeply passionate about how technology can solve complex problems. For me, coding is not just a skill, but a tool for innovation.</p>
-        <p>Currently, I am building a strong foundation in computer science. I approach every challenge as a learning opportunity, aiming to improve my logic and development skills every single day.</p>
-    </section>
-
-    <section id="academic">
-        <h2>Academic Journey</h2>
-        <p>I am in my second semester of BCA, exploring advanced subjects like Database Management and Java. My goal is to understand how software architectures interact with hardware to create seamless user experiences.</p>
-        <p>Beyond textbooks, I actively participate in tech workshops. I believe that staying updated with emerging trends like AI and Cybersecurity is crucial for any aspiring software engineer in 2026.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Technical Competencies</h2>
-        <p>My toolkit includes C-Programming, Java, and DBMS. I enjoy the process of building backend logic and managing data efficiently, which forms the backbone of modern enterprise applications.</p>
-        <p>I also have a keen eye for front-end development. Using HTML and CSS, I love creating responsive and visually appealing interfaces that provide a great experience for the end-user.</p>
-    </section>
-
-    <section id="vision">
-        <h2>Future Vision</h2>
-        <p>My ambition is to become a Full-Stack Software Developer. I want to build applications that leave a positive impact on society. Continuous growth and contribution to the tech community are my top priorities.</p>
-        <p>I also value teamwork and communication. I believe that the best software is created through collaboration. I look forward to working on large-scale projects with other brilliant minds in the future.</p>
+        <h2>🎓 Academic Profile</h2>
+        <p style="font-size: 1.3rem; line-height: 1.8;">
+            I am a dedicated **BCA student** at Maharashtra Mahavidyalaya. My academic focus is on building a strong foundation in computer science, specifically in software logic and modern web technologies. I am passionate about solving complex problems through clean and efficient code.
+        </p>
     </section>
 
     <section id="motivation">
-        <h2>Daily Motivation</h2>
-        <p style="text-align: center;">Click each icon below for a burst of inspiration!</p>
-        <div class="icon-column">
-            <div class="m-icon" onclick="alert('Innovation: Create something the world hasn’t seen yet!')">💡</div>
-            <div class="m-icon" onclick="alert('Persistence: Never give up on a bug, it’s just a puzzle!')">⏳</div>
-            <div class="m-icon" onclick="alert('Excellence: Do your best, even when no one is watching.')">🏆</div>
-            <div class="m-icon" onclick="alert('Learning: Stay hungry for knowledge, technology never stops.')">📖</div>
-            <div class="m-icon" onclick="alert('Dream: Your only limit is your imagination. Aim high!')">🚀</div>
+        <h2>🚀 Motivation & Goals</h2>
+        <div class="motivation-grid">
+            <div class="m-card">
+                <span style="font-size: 40px;">💡</span>
+                <p><b>Innovation</b><br>Create something new</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">⏳</span>
+                <p><b>Persistence</b><br>Never give up on bugs</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">🏆</span>
+                <p><b>Excellence</b><br>Do your best always</p>
+            </div>
+            <div class="m-card">
+                <span style="font-size: 40px;">📖</span>
+                <p><b>Learning</b><br>Stay hungry for tech</p>
+            </div>
         </div>
+    </section>
+
+    <section id="contact">
+        <h2>📩 Leave a Message</h2>
+        <div class="contact-form">
+            <input type="text" id="userName" placeholder="Your Name">
+            <textarea id="userMsg" rows="4" placeholder="Type your message here..."></textarea>
+            <button class="send-btn" onclick="sendMessage()">Send Message</button>
+        </div>
+        <p id="sentNotice" style="display:none; color: #facc15; margin-top: 15px; text-align: center; font-weight: bold;">
+            ✅ Message Sent Successfully! Thank you for reaching out.
+        </p>
     </section>
 
     <div class="qr-section">
@@ -149,38 +204,38 @@
         <img src="qr-code.png.png.png" alt="QR Code" class="qr-image">
     </div>
 
-    <div class="thanks-msg">
+    <div class="thank-you">
         <h3>Thank You</h3>
-        <p style="font-size: 1.3rem; color: #94a3b8; margin-top: 15px;">For exploring my digital space and checking out my code!</p>
+        <p style="font-size: 1.2rem; color: #94a3b8; margin-top: 10px;">For visiting my digital space!</p>
     </div>
 
     <footer>
-        <p>Built with ❤️ by Anuja | BCA Scholar 2026</p>
+        <p>Built with ❤️ by Anuja | BCA Scholar</p>
     </footer>
 
     <script>
-        // TYPEWRITER EFFECT
-        const textStrings = ["I AM ANUJA", "BCA STUDENT", "WEB DEVELOPER", "FUTURE ENGINEER"];
-        let i = 0, j = 0, isDeleting = false;
-        function type() {
-            let current = textStrings[i];
-            document.getElementById('type-target').innerHTML = current.substring(0, j);
-            if (!isDeleting && j === current.length) { isDeleting = true; setTimeout(type, 1500); }
-            else if (isDeleting && j === 0) { isDeleting = false; i = (i + 1) % textStrings.length; setTimeout(type, 500); }
-            else { j += isDeleting ? -1 : 1; setTimeout(type, isDeleting ? 100 : 150); }
-        }
-        type();
-
         function updateTime() {
-            document.getElementById('clock').innerHTML = new Date().toLocaleTimeString();
+            const now = new Date();
+            document.getElementById('clock').innerHTML = now.toLocaleTimeString();
             setTimeout(updateTime, 1000);
         }
 
-        window.onscroll = () => {
-            let winScroll = document.documentElement.scrollTop;
-            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
-        };
+        function sendMessage() {
+            const name = document.getElementById('userName').value;
+            const msg = document.getElementById('userMsg').value;
+            
+            if(name && msg) {
+                document.getElementById('sentNotice').style.display = 'block';
+                document.getElementById('userName').value = '';
+                document.getElementById('userMsg').value = '';
+                
+                setTimeout(() => {
+                    document.getElementById('sentNotice').style.display = 'none';
+                }, 4000);
+            } else {
+                alert("Please fill both Name and Message!");
+            }
+        }
     </script>
 </body>
 </html>
